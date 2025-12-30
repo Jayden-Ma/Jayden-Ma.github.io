@@ -1,6 +1,28 @@
-/* ============================
-   1. Global Styles
-============================ */
+/* scroll in animation */
+
+.scroll-in {
+    opacity: 0;
+    transform: translateY(40px);
+
+}
+
+/* Modern browsers */
+@supports (animation-timeline: view()) {
+    .scroll-in {
+        animation: scrollIn 0.8s ease forwards;
+        animation-timeline: view();
+        animation-range: entry 20% cover 35%;
+    }
+}
+
+@keyframes scrollIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* glboal vars */
 * {
     box-sizing: border-box;
 }
@@ -15,9 +37,7 @@ body {
     scroll-behavior: smooth;
 }
 
-/* ============================
-   2. Hero Section
-============================ */
+/* hero */
 .hero-split {
     padding: 100px 20px;
 }
@@ -69,18 +89,13 @@ body {
     margin: 3px 0;
 }
 
-/* ============================
-   3. Main Content Wrapper
-============================ */
 .content-wrapper {
     max-width: 1000px;
     margin: 0 auto;
     padding: 60px 20px;
 }
 
-/* ============================
-   4. About Me Section
-============================ */
+/* about me */
 .about-me h2,
 .projects h2,
 .contact-me h2 {
@@ -111,9 +126,7 @@ body {
     margin-bottom: 10px;
 }
 
-/* ============================
-   5. Projects Section
-============================ */
+/* Projects */
 .projects {
     margin-top: 60px;
 }
@@ -189,12 +202,11 @@ body {
     color: #666;
 }
 
-/* ============================
-   6. Contact Section
-============================ */
+/* contact section */
 .contact-me {
     color: #666;
     margin-top: 40px;
+    margin-bottom: 70px;
 }
 
 .contact-me p {
@@ -210,9 +222,8 @@ body {
     text-decoration: underline;
 }
 
-/* ============================
-   7. Responsive Design
-============================ */
+
+
 @media (max-width: 768px) {
 
     .hero-container {
